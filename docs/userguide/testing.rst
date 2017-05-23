@@ -78,6 +78,7 @@ in this example:
 
             # set a side effect on the patched method
             # so that it raises the error we want.
+            send_order_retry.side_effect = Retry()
             product_order.side_effect = OperationalError()
 
             with raises(Retry):
